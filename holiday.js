@@ -17,11 +17,13 @@ function fetch_holidays(){
     var event_start_day     = events[i].getStartTime();
     var event_end_day       = events[i].getEndTime();
     
+    // Call the accessors again to get a fresh object
+    var event_duration_working_days = working_days_in_range(events[i].getStartTime(), events[i].getEndTime());
+    
     var row_number = i + 2; // Because we want the header row for ourselves
     
     var staff_member = event_title.split(/:/)[0];
     var is_half_day  = !!event_title.match(/half day/i);
-    var event_duration_working_days = working_days_in_range(event_start_day, event_end_day);
     
     if (is_half_day) {
       event_duration_working_days = 0.5;
