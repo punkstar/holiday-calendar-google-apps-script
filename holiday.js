@@ -33,7 +33,7 @@ function fetch_holidays_v2() {
     
     /* Loop through each day in the event and create a new row in the spreadsheet for it */ 
     while (date_current_day < event_end_day) {
-      var staff_member = event_title.split(/:/)[0];
+      var staff_member = event_title.split(/:/)[0].trim();
       var is_half_day  = is_event_half_day(event, date_current_day);
       var is_working_day = is_date_working_day(date_current_day);
       var is_holiday   = is_event_holiday(event);
